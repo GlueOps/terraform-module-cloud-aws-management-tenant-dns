@@ -1,0 +1,1 @@
+# terraform-module-cloud-aws-management-tenant-dns
