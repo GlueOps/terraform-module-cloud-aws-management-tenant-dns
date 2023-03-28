@@ -42,6 +42,7 @@ resource "aws_route53_key_signing_key" "primary" {
 }
 
 resource "aws_route53_hosted_zone_dnssec" "primary" {
+  provider = aws.management-tenant-dns
   depends_on = [
     aws_route53_key_signing_key.primary
   ]
