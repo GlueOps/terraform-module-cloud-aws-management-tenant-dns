@@ -20,10 +20,21 @@ variable "domains" {
   nullable    = false
 }
 
-module "dnssec_kms_key" {
-  source         = "https://github.com/GlueOps/terraform-module-cloud-aws-dnssec-kms-key.git?ref=feat/adding-kms"
+module "dnssec_key" {
+  source         = "git::https://github.com/GlueOps/terraform-module-cloud-aws-dnssec-kms-key.git?ref=feat/adding-kms"
   aws_account_id = var.aws_account_id
-
 }
 
+resource "aws_route53_zone" "domains" {
+  for_each = toset(var.domains)
+  name     = each.value
+}
+
+resource "aws_route53_key_signing_key" "primary" {
+  for_each                   = toset(var.domains)
+  hosted_zone_id             = aws_route53_zone.domains[each.value].id
+  key_management_service_arn = module.dnssec_key.kms_key_arn
+  name                       = "primary"
+  status                     = "ACTIVE"
+}
 
