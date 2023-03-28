@@ -24,13 +24,14 @@ module "dnssec_key" {
   aws_account_id = var.aws_account_id
 }
 
-resource "aws_route53_zone" "domains" {
+resource "aws_route53_zone" "domain" {
   provider = aws.management-tenant-dns
   name     = var.domain
 }
 
-
-
+output "zone_id" {
+  value = aws_route53_zone.domain.id
+}
 
 resource "aws_route53_key_signing_key" "primary" {
   provider                   = aws.management-tenant-dns
