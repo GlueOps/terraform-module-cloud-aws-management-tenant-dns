@@ -1,7 +1,7 @@
 # terraform-module-cloud-aws-management-tenant-dns
 <!-- BEGIN_TF_DOCS -->
 
-This Terraform module creates/manages the hosted root zones for our tenant domains within AWS Route53. So in the case of onglueops.com this module will create a route53 zone for it. Since we do not use route53 as our registrar you will need to set the SOA for onglueops.com at the registrar.
+This Terraform module creates/manages the hosted root zones for our tenant domains within AWS Route53. So in the case of onglueops.com this module will create a route53 zone for it and enable DNSSEC. Since we do not use route53 as our registrar you will need to set the SOA for onglueops.com at the registrar. After setting the SOA you will need to configure the DNSSEC record(s) at the registrar. You can grab the DNSSEC configurations from the AWS Console.
 
 ## Requirements
 
