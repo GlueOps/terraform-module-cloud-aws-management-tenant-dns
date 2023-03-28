@@ -14,7 +14,7 @@ variable "aws_account_id" {
 
 
 variable "domain" {
-  description = "The root domains that will have their SOA delegated to AWS Route53"
+  description = "The root domain that will have their SOA delegated to AWS Route53"
   type        = string
   nullable    = false
 }
