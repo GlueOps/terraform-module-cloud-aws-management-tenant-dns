@@ -32,7 +32,7 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | The AWS Account ID | `string` | n/a | yes |
-| <a name="input_domain"></a> [domain](#input\_domain) | The root domains that will have their SOA delegated to AWS Route53 | `string` | n/a | yes |
+| <a name="input_domain"></a> [domain](#input\_domain) | The root domain that will have their SOA delegated to AWS Route53 | `string` | n/a | yes |
 
 ## Outputs
 
