@@ -38,5 +38,5 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | n/a |
+| <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | Management DNS that will be used for delegation for each tenant |
 <!-- END_TF_DOCS -->
