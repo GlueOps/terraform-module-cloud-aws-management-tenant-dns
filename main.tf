@@ -13,9 +13,9 @@ variable "aws_account_id" {
 }
 
 
-variable "domains" {
+variable "domain" {
   description = "The root domains that will have their SOA delegated to AWS Route53"
-  type        = list(string)
+  type        = string
   nullable    = false
 }
 
@@ -26,14 +26,15 @@ module "dnssec_key" {
 
 resource "aws_route53_zone" "domains" {
   provider = aws.management-tenant-dns
-  for_each = toset(var.domains)
-  name     = each.value
+  name     = var.domain
 }
+
+
+
 
 resource "aws_route53_key_signing_key" "primary" {
   provider                   = aws.management-tenant-dns
-  for_each                   = toset(var.domains)
-  hosted_zone_id             = aws_route53_zone.domains[each.value].id
+  hosted_zone_id             = aws_route53_zone.domains.id
   key_management_service_arn = module.dnssec_key.kms_key_arn
   name                       = "primary"
   status                     = "ACTIVE"
