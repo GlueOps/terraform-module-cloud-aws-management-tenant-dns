@@ -1,9 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "4.59.0"
-    }
+provider "aws" {
+  alias  = "management-tenant-dns"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::${var.aws_account_id}:role/OrganizationAccountAccessRole"
   }
 }
 
@@ -26,11 +25,13 @@ module "dnssec_key" {
 }
 
 resource "aws_route53_zone" "domains" {
+  provider = aws.management-tenant-dns
   for_each = toset(var.domains)
   name     = each.value
 }
 
 resource "aws_route53_key_signing_key" "primary" {
+  provider                   = aws.management-tenant-dns
   for_each                   = toset(var.domains)
   hosted_zone_id             = aws_route53_zone.domains[each.value].id
   key_management_service_arn = module.dnssec_key.kms_key_arn
