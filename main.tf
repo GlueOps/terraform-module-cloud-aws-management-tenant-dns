@@ -31,6 +31,7 @@ resource "aws_route53_zone" "domain" {
 
 output "zone_id" {
   value = aws_route53_zone.domain.id
+  description = "Management DNS that will be used for delegation for each tenant"
 }
 
 resource "aws_route53_key_signing_key" "primary" {
