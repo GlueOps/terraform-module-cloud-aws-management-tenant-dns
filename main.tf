@@ -35,7 +35,7 @@ output "zone_id" {
 
 resource "aws_route53_key_signing_key" "primary" {
   provider                   = aws.management-tenant-dns
-  hosted_zone_id             = aws_route53_zone.domains.id
+  hosted_zone_id             = aws_route53_zone.domain.id
   key_management_service_arn = module.dnssec_key.kms_key_arn
   name                       = "primary"
   status                     = "ACTIVE"
