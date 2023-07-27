@@ -18,6 +18,8 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_dnssec_key"></a> [dnssec\_key](#module\_dnssec\_key) | git::https://github.com/GlueOps/terraform-module-cloud-aws-dnssec-kms-key.git | v0.1.0 |
+| <a name="module_redirect_apex_domain"></a> [redirect\_apex\_domain](#module\_redirect\_apex\_domain) | git::https://github.com/GlueOps/terraform-module-cloud-aws-route53-s3-http-redirect.git | v0.1.2-glueops |
+| <a name="module_redirect_www_domain"></a> [redirect\_www\_domain](#module\_redirect\_www\_domain) | git::https://github.com/GlueOps/terraform-module-cloud-aws-route53-s3-http-redirect.git | v0.1.2-glueops |
 
 ## Resources
 
