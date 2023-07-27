@@ -4,7 +4,7 @@ locals {
 }
 
 module "redirect_apex_domain" {
-  source = "git::https://github.com/GlueOps/terraform-module-cloud-aws-route53-s3-http-redirect.git"
+  source = "git::https://github.com/GlueOps/terraform-module-cloud-aws-route53-s3-http-redirect.git?ref=v0.1.2-glueops"
   providers = {
     aws = aws.management-tenant-dns
   }
@@ -14,7 +14,7 @@ module "redirect_apex_domain" {
 }
 
 module "redirect_www_domain" {
-  source = "git::https://github.com/GlueOps/terraform-module-cloud-aws-route53-s3-http-redirect.git"
+  source = "git::https://github.com/GlueOps/terraform-module-cloud-aws-route53-s3-http-redirect.git?ref=v0.1.2-glueops"
   providers = {
     aws = aws.management-tenant-dns
   }
