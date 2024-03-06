@@ -4,8 +4,7 @@ locals {
 }
 
 module "redirect_apex_domain" {
-  source  = "TechNative-B-V/route53-s3-http-redirect/aws"
-  version = "0.1.2"
+  source  = "git::https://github.com/TechNative-B-V/terraform-aws-module-route53-s3-http-redirect?ref=v0.1.2"
 
   providers = {
     aws = aws.management-tenant-dns
@@ -16,8 +15,7 @@ module "redirect_apex_domain" {
 }
 
 module "redirect_www_domain" {
-  source  = "TechNative-B-V/route53-s3-http-redirect/aws"
-  version = "0.1.2"
+  source  = "git::https://github.com/TechNative-B-V/terraform-aws-module-route53-s3-http-redirect?ref=v0.1.2"
 
   providers = {
     aws = aws.management-tenant-dns
