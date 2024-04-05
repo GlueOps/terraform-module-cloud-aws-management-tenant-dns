@@ -20,7 +20,7 @@ variable "domain" {
 }
 
 module "dnssec_key" {
-  source         = "git::https://github.com/GlueOps/terraform-module-cloud-aws-dnssec-kms-key.git?ref=v0.1.0"
+  source         = "git::https://github.com/GlueOps/terraform-module-cloud-aws-dnssec-kms-key.git?ref=v0.3.0"
   aws_account_id = var.aws_account_id
 }
 
